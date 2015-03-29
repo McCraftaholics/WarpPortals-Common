@@ -42,7 +42,7 @@ public class AnalyticsReportUsage {
      * Standardized method for calculating the hours since the UNIX Epoch.
      * @return Long value corresponding to the hours since the UNIX Epoch
      */
-    private long getCurrentHour() {
+    public static long getCurrentHour() {
         return (System.currentTimeMillis() / MS_IN_HOUR) + 1;
     }
 
@@ -53,7 +53,7 @@ public class AnalyticsReportUsage {
      */
     private AnalyticsUsage getAnalyticsUsageForHour(long hour) {
         if (!perHour.containsKey(hour)) {
-            perHour.put(hour, new AnalyticsUsage());
+            perHour.put(hour, AnalyticsUsage.createNew());
         }
         return perHour.get(hour);
     }

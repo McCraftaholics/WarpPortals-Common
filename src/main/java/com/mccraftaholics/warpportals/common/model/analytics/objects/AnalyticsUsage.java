@@ -3,13 +3,24 @@ package com.mccraftaholics.warpportals.common.model.analytics.objects;
 import com.mccraftaholics.warpportals.common.model.SimpleCoords;
 import com.mccraftaholics.warpportals.common.model.SimplePortal;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 public class AnalyticsUsage {
-    Map<UUID, Integer> portalUses;
-    Map<UUID, SimplePortal> portalsCreated;
+    public Map<UUID, Integer> portalUses;
+    public Map<UUID, SimplePortal> portalsCreated;
+
+    public AnalyticsUsage() {
+    }
+
+    public static AnalyticsUsage createNew() {
+        AnalyticsUsage analyticsUsage = new AnalyticsUsage();
+        analyticsUsage.portalUses = new HashMap<UUID, Integer>();
+        analyticsUsage.portalsCreated = new HashMap<UUID, SimplePortal>();
+        return analyticsUsage;
+    }
 
     /**
      * Increment the count for number of times that portal UUID has been used
@@ -20,6 +31,7 @@ public class AnalyticsUsage {
         if (portalUses.containsKey(uuid)) {
             current = portalUses.get(uuid);
         }
+        current++;
         portalUses.put(uuid, current);
     }
 

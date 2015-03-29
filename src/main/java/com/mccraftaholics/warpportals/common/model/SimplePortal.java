@@ -9,6 +9,10 @@ public class SimplePortal<T extends SimpleCoords> implements Comparable<SimplePo
     public String message;
     public List<T> blocks = new ArrayList<T>();
 
+    public SimplePortal() {
+
+    }
+
     public SimplePortal(UUID uuid, String name, String material, String message, List<T> blocks) {
         this.uuid = uuid;
         this.name = name;
