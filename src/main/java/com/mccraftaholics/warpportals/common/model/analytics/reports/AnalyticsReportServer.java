@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class AnalyticsReportServer {
-    public String serverId;
+    public String serverName;
     public String timestamp;
 
     public String warpPortalsVersion;
